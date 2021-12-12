@@ -8,6 +8,9 @@ public class PlayerInput : MonoBehaviour
 
     //Observer DesingPattern
     public static event Action<Vector2> MouseVector;
+    //Switch key
+    // shoot Button
+    // reload button
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
