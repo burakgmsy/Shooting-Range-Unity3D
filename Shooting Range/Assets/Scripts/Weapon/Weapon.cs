@@ -60,7 +60,7 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
         if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, weaponType.range))
         {
             //Debug.Log(hit.transform.name);
-            Target target = hit.transform.GetComponent<Target>();
+            DamageableObject target = hit.transform.GetComponent<DamageableObject>();
             if (target != null)
             {
                 target.TakeDamage(weaponType.damage);

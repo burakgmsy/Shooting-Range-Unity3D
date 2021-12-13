@@ -7,6 +7,7 @@ public class HitPoint : MonoBehaviour
     public GameObject metalHitEffect;
     public GameObject stoneHitEffect;
     public GameObject woodHitEffect;
+    public GameObject sandHitEffect;
     public GameObject[] fleshHitEffects;
 
 
@@ -19,7 +20,7 @@ public class HitPoint : MonoBehaviour
         Weapon.HitListener -= HandleHit;
     }
 
-    
+
     void HandleHit(RaycastHit hit)
     {
         if (hit.collider.sharedMaterial != null)
@@ -39,6 +40,9 @@ public class HitPoint : MonoBehaviour
                     break;
                 case "Meat":
                     SpawnDecal(hit, fleshHitEffects[Random.Range(0, fleshHitEffects.Length)]);
+                    break;
+                case "Sand":
+                    SpawnDecal(hit, sandHitEffect);
                     break;
                 default:
                     //SpawnDecal(hit,defoutEffect)
