@@ -4,46 +4,38 @@ using UnityEngine;
 
 public class WeaponSwitching : MonoBehaviour
 {
-    public int selectedWeapon = 0;
-
+    public int selectedWeapon;
     private void Start()
     {
-        SelectWeapon();
+        selectedWeapon = 0;
+        SwitchWeapon();
     }
-    private void Update()
+    private void Awake()
+    {
+        PlayerInput.OnSwitch += SelectWeapon;
+    }
+    private void OnDestroy()
+    {
+        PlayerInput.OnSwitch -= SelectWeapon;
+    }
+
+    private void SelectWeapon()
     {
         int previousSelectedWeapon = selectedWeapon;
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (Input.GetKeyDown(KeyCode.W)) // observer eklenecek
         {
             if (selectedWeapon >= transform.childCount - 1)
                 selectedWeapon = 0;
             else
                 selectedWeapon++;
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            if (selectedWeapon <= 0)
-                selectedWeapon = transform.childCount - 1;
-            else
-                selectedWeapon--;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            selectedWeapon = 0;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            selectedWeapon = 1;
-        }
-
-
         if (previousSelectedWeapon != selectedWeapon)
         {
-            SelectWeapon();
+            SwitchWeapon();
         }
-
     }
-    void SelectWeapon()
+
+    void SwitchWeapon()
     {
         int i = 0;
         foreach (Transform weapon in transform)

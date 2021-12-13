@@ -11,6 +11,10 @@ public class MouseLook : MonoBehaviour
     {
         PlayerInput.MouseVector += LookAround; //Observer DesingPattern
     }
+    private void OnDestroy()
+    {
+        PlayerInput.MouseVector -= LookAround;
+    }
 
     private void LookAround(Vector2 vector)
     {
