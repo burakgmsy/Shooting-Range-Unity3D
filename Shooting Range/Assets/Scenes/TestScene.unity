@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6368746241808026614, guid: c508b85099faac7489843e8b734ce380, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6368746241808026614, guid: c508b85099faac7489843e8b734ce380, type: 3}
       propertyPath: m_LocalScale.x
@@ -638,6 +638,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 894876844}
+--- !u!1 &485494438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485494439}
+  - component: {fileID: 485494440}
+  m_Layer: 0
+  m_Name: PostProcessing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &485494439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485494438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5502005, y: 4.700042, z: 2.5439537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485494440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485494438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 134e88bf56477aa48a8e96fc0b4a61b0, type: 2}
 --- !u!1 &699649434
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +780,7 @@ RectTransform:
   - {fileID: 1541548442}
   - {fileID: 207924467}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -800,11 +848,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  objList: []
   levelType:
   - {fileID: 11400000, guid: 5275827437cfcd0478e0adb024c69f0d, type: 2}
   - {fileID: 11400000, guid: f9373a2689e08cb45ace1e797c99a3ce, type: 2}
   - {fileID: 11400000, guid: 354665484096e994eb0fa54285064e9c, type: 2}
+  - {fileID: 11400000, guid: d02a541ac320c9a4f83653479205725b, type: 2}
+  - {fileID: 11400000, guid: 0d14b56e37477da4c962023f6425dd24, type: 2}
   deadCounter: 0
 --- !u!1 &894876840
 GameObject:
@@ -856,7 +905,7 @@ Transform:
   - {fileID: 981820792}
   - {fileID: 184670061}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -179.24, z: 0}
 --- !u!114 &894876845
 MonoBehaviour:
@@ -1074,7 +1123,7 @@ GameObject:
   - component: {fileID: 1541548444}
   - component: {fileID: 1541548443}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CrossHair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1112,7 +1161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.98039216}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.98039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1186,6 +1235,10 @@ MonoBehaviour:
   - objectPrefab: {fileID: 8676524711196111866, guid: d18f6b135b7359348b26dc5ab83ebb14, type: 3}
     poolSize: 5
   - objectPrefab: {fileID: 1893300396054061170, guid: 83902f620946321429a7aedb27a00f04, type: 3}
+    poolSize: 5
+  - objectPrefab: {fileID: 2438119934748389224, guid: 0a776fe843004a44da36862dcee05761, type: 3}
+    poolSize: 5
+  - objectPrefab: {fileID: 6586477275412709794, guid: 8edabe477a7aaed4daf1acddfb2c72ca, type: 3}
     poolSize: 5
 --- !u!23 &1387306131893823232
 MeshRenderer:

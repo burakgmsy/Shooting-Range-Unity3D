@@ -9,5 +9,5 @@ public class LevelData : ScriptableObject
     public int levelIndex;
     public int targetCount;
     public int poolIndex;
-    public Color targetColor;
+    public Material material;
 }

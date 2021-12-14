@@ -22,5 +22,6 @@ public class Barrel : DamageableObject, IExplodeable
         solidBarrel.SetActive(false);
         explodeBarrel.SetActive(true);
         explodeEffect.Play();
+        //patlama sesi
     }
 }

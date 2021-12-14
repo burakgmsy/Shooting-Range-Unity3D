@@ -17,4 +17,8 @@ public class PlayerPrefsManager : Singleton<PlayerPrefsManager>
 
         return PlayerPrefs.GetInt(LEVEL_PREFS);
     }
+    public void ResetLevel()
+    {
+        PlayerPrefs.SetInt(LEVEL_PREFS, 1);
+    }
 }

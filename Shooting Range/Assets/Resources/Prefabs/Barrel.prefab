@@ -987,7 +987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7d72621ddb7214ca48365ad1d4e814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetType: {fileID: 11400000, guid: 38df57d45f9114447bb2ec0baef4a226, type: 2}
+  maxHp: 100
   explodeBarrel: {fileID: 8676524710824096910}
   solidBarrel: {fileID: 8128154399473961250}
   explodeEffect: {fileID: 8851361860301867761}

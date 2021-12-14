@@ -72,7 +72,6 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
 
             HitListener?.Invoke(hit);
             Recoil(weaponType.recoilVector);
-            LevelManager.Instance.CheckObject();
         }
     }
 

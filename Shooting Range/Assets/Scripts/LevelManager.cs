@@ -6,13 +6,13 @@ public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private int currentLevel;
     private Dictionary<int, LevelData> myLevel = new Dictionary<int, LevelData>();
-    public List<DamageableObject> objList;
     public LevelData[] levelType;
     [SerializeField] private int deadCounter;
 
 
     private void Start()
     {
+        PlayerPrefsManager.Instance.ResetLevel();
         DamageableObject.Dead += DeadCounterObserver;
         AddLevels();
         LevelCheck();
@@ -21,13 +21,21 @@ public class LevelManager : Singleton<LevelManager>
 
     private void SpawnObject()
     {
+        ObjectPool.Instance.AllObjDeActived();
         for (int i = 0; i < myLevel[currentLevel].targetCount; i++)
         {
             GameObject obj = ObjectPool.Instance.GetPooledObject(myLevel[currentLevel].poolIndex);
             var calculatedPos = CalculateTargetPosition();
+            //target coloru da değiştire biliriz..
             obj.transform.position = new Vector3(calculatedPos.x, obj.transform.position.y, calculatedPos.z);
             //get componant ile base class'a ulaşılabilir mi?
             // observer ile çözüldü
+
+            foreach (Renderer renderer in obj.GetComponentsInChildren<Renderer>())
+            {
+                renderer.material = myLevel[currentLevel].material;
+                //Break objeler SetActive false olduğu için materialı alamıyor. 
+            }
         }
     }
     public void DeadCounterObserver(bool value)
@@ -36,17 +44,11 @@ public class LevelManager : Singleton<LevelManager>
         {
             deadCounter++;
             if (deadCounter >= 5)
-                Debug.Log("NextLevel");
+                NextLevel();
+            //level success
         }
 
 
-    }
-    public void CheckObject()
-    {
-        foreach (DamageableObject obj in objList)
-        {
-            Debug.Log(obj.CurrentHp);
-        }
     }
     private Vector3 CalculateTargetPosition()
     {
@@ -78,15 +80,17 @@ public class LevelManager : Singleton<LevelManager>
     private void DisplayLevel()
     {
         Debug.Log(currentLevel);
-
         Debug.Log(myLevel[currentLevel].levelIndex);
     }
 
 
     private void NextLevel()
     {
+        deadCounter = 0;
         if (currentLevel < myLevel.Count)
             PlayerPrefsManager.Instance.SaveLevel(currentLevel + 1);
+        LevelCheck();
+        SpawnObject();
 
     }
 }

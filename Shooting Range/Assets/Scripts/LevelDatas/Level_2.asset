@@ -15,4 +15,4 @@ MonoBehaviour:
   levelIndex: 2
   targetCount: 5
   poolIndex: 1
-  targetColor: {r: 1, g: 1, b: 1, a: 0}
+  material: {fileID: 2100000, guid: 297c064cf5aac414198ff7ee8f8dd521, type: 2}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelIndex: 5
   targetCount: 5
-  poolIndex: 0
-  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  poolIndex: 4
+  material: {fileID: 2100000, guid: bab4c05980ee68e4a9924a5bbeaf973e, type: 2}
