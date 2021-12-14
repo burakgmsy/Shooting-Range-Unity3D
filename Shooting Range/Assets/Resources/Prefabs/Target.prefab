@@ -103,6 +103,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5277712268177369212}
   - component: {fileID: 3509813677366273078}
+  - component: {fileID: 2531090579815233413}
+  - component: {fileID: 7632648962482817590}
   m_Layer: 0
   m_Name: target
   m_TagString: Untagged
@@ -177,3 +179,31 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00029888414, y: 0.008523143, z: -0.00011353847}
     m_Extent: {x: 0.00020436148, y: 0.008523165, z: 0.0026299045}
   m_DirtyAABB: 0
+--- !u!114 &2531090579815233413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257177950647510571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1bed59ef02d61040a66436bc19d242f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  _rigidbody: {fileID: 0}
+  rotatePivot: {fileID: 1530801164115607234}
+--- !u!65 &7632648962482817590
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257177950647510571}
+  m_Material: {fileID: 13400000, guid: 77b2008fc6197f44a82570617d274355, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0004087282, y: 0.005259815, z: 0.017046334}
+  m_Center: {x: -0.00029889165, y: -0.000000014268153, z: 0.008523143}

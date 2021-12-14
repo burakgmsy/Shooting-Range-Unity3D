@@ -10,11 +10,15 @@ public interface IExplodeable // barrle and gas tanks
 {
     void Explode();
 }
-public interface IReviveable // targetBoard;
+public interface Ibreakable // targetBoard;
 {
     void Revive();
 }
 public interface IHealable // Human copy 
 {
     void Heal();
+}
+public interface IReviveable
+{
+    void Revive();
 }

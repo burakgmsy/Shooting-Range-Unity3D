@@ -11,6 +11,8 @@ public class ObjectPool : Singleton<ObjectPool>
         public Queue<GameObject> pooledObjects;
         public GameObject objectPrefab;
         public int poolSize;
+        // scriptableObject ile bu değerler alınabilir 
+        // Üzerine çalışılacak
     }
 
     [SerializeField] private Pool[] pools = null;
@@ -30,7 +32,7 @@ public class ObjectPool : Singleton<ObjectPool>
         }
     }
 
-    public GameObject GetPooledObject(int objectType, GameObject gameObject, Vector3 vector)
+    public GameObject GetPooledObject(int objectType)
     {
         if (objectType >= pools.Length)
         {
@@ -41,8 +43,6 @@ public class ObjectPool : Singleton<ObjectPool>
         obj.SetActive(true);
 
         pools[objectType].pooledObjects.Enqueue(obj);
-
-        obj.transform.position = gameObject.transform.position + vector;
 
         return obj;
     }

@@ -12,7 +12,7 @@ public class Barrel : DamageableObject, IExplodeable
     public override void TakeDamage(float amount)
     {
         base.TakeDamage(amount);
-        if (currentHp <= 0)
+        if (CurrentHp <= 0)
         {
             Explode();
         }

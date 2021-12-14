@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class TargetMetalBoard : DamageableObject, IKillable, IReviveable
+public class MetalBoard : DamageableObject, IKillable, IReviveable
 {
     //observer
     public Transform rotatePivot;
+
     public override void TakeDamage(float amount)
     {
         base.TakeDamage(amount);
-        if (currentHp <= 0)
+        if (CurrentHp <= 0)
         {
             Die();
         }
@@ -27,6 +26,6 @@ public class TargetMetalBoard : DamageableObject, IKillable, IReviveable
     public void Revive()
     {
         rotatePivot.DORotate(new Vector3(rotatePivot.rotation.x, 90, 0), 0.5f);
-        currentHp = maxHp;
+        CurrentHp = maxHp;
     }
 }
