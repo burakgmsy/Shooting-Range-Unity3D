@@ -1,12 +1,12 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class MetalBoard : DamageableObject, IKillable, IReviveable
+public class MetalTarget : DamageableObject, IKillable, IReviveable
 {
     //observer
     public Transform rotatePivot;
 
-    public override void TakeDamage(float amount)
+    public override void TakeDamage(int amount)
     {
         base.TakeDamage(amount);
         if (CurrentHp <= 0)

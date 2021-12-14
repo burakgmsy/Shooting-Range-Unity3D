@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
 {
+    public TMP_Text cuurentAmmo;
     [SerializeField] private WeaponType weaponType = null;
     [SerializeField] public bool isReloading = false;
     [SerializeField] private Camera _camera;
@@ -21,10 +23,12 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
         //currentAmmo = maxAmmo;
         weaponType.nextTimeToFire = 0;
         weaponType.currentAmmo = weaponType.maxAmmo;
+        DisplayAmmo();
     }
     private void Update()
     {
         CalculateRecoil(weaponType.snappiness, weaponType.returnSpeed);
+        DisplayAmmo();
     }
     public void ReloadAmmo()
     {
@@ -33,6 +37,7 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
             StartCoroutine(Reload());
             return;
         }
+        DisplayAmmo();
     }
     public IEnumerator Reload()
     {
@@ -63,7 +68,7 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
             DamageableObject target = hit.transform.GetComponent<DamageableObject>();
             if (target != null)
             {
-                target.TakeDamage(weaponType.damage);
+                target.TakeDamage((int)weaponType.damage);
             }
             if (hit.rigidbody != null)
             {
@@ -85,6 +90,10 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
         targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, returnSpeed * Time.deltaTime);
         currentRotation = Vector3.Slerp(currentRotation, targetRotation, snappiness * Time.fixedDeltaTime);
         recoilObject.localRotation = Quaternion.Euler(currentRotation);
+    }
+    public void DisplayAmmo()
+    {
+        cuurentAmmo.text = "Ammo: " + weaponType.currentAmmo + " / " + weaponType.maxAmmo;
     }
 
 

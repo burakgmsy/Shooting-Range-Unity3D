@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LevelManager : Singleton<LevelManager>
 {
+    public TMP_Text level;
     [SerializeField] private int currentLevel;
     private Dictionary<int, LevelData> myLevel = new Dictionary<int, LevelData>();
     public LevelData[] levelType;
@@ -79,8 +81,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void DisplayLevel()
     {
-        Debug.Log(currentLevel);
-        Debug.Log(myLevel[currentLevel].levelIndex);
+        level.text = "Level " + currentLevel;
     }
 
 

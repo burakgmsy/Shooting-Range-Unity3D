@@ -22,3 +22,7 @@ public interface IReviveable
 {
     void Revive();
 }
+public interface IDeActiveable
+{
+    IEnumerator DeActive();
+}
