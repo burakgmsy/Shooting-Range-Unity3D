@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: M4A1
   m_EditorClassIdentifier: 
   weaponName: M4A1
-  nextTimeToFire: 73.90009
-  damage: 50
+  nextTimeToFire: 4.7414603
+  damage: 5
   reloadTime: 5
   maxAmmo: 30
   currentAmmo: 0
   range: 200
   impactForce: 150
-  fireRate: 10
+  fireRate: 15
   recoilVector: {x: -5, y: 3, z: 0.5}
   snappiness: 6
   returnSpeed: 15

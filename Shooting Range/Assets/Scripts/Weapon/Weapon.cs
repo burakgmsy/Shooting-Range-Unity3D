@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
     [SerializeField] public bool isReloading = false;
     [SerializeField] private Camera _camera;
     [SerializeField] private ParticleSystem muzzleFlash;
+    public int shootCounter;
 
     //RECOİL
     private Vector3 currentRotation;
@@ -66,6 +67,7 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
     {
         muzzleFlash.Play();
         weaponType.currentAmmo--;
+        shootCounter++;
         Debug.Log("Ateş Edildi");
 
         RaycastHit hit;

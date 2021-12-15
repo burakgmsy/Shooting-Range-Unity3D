@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Baretta
   m_EditorClassIdentifier: 
   weaponName: Baretta
-  nextTimeToFire: 6.3104863
-  damage: 100
+  nextTimeToFire: 50.590054
+  damage: 40
   reloadTime: 4
   maxAmmo: 10
-  currentAmmo: 0
+  currentAmmo: 3
   range: 100
   impactForce: 75
-  fireRate: 10
+  fireRate: 2
   recoilVector: {x: -7, y: 2, z: 0.35}
   snappiness: 10
   returnSpeed: 4
