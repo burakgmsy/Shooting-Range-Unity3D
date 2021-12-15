@@ -28,6 +28,10 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
     {
         CalculateRecoil(weaponType.snappiness, weaponType.returnSpeed);
         GameManager.Instance.DisplayAmmo(weaponType.currentAmmo, weaponType.maxAmmo);
+        if (!isReloading)
+        {
+            GameManager.Instance.DisplayReloading(null);
+        }
     }
     public void ReloadAmmo()
     {
@@ -44,7 +48,7 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
         GameManager.Instance.DisplayReloading("Reloading..");
         isReloading = true;
         yield return new WaitForSeconds(weaponType.reloadTime);
-         Debug.Log("Şarjör Dolduruldu");
+        Debug.Log("Şarjör Dolduruldu");
         weaponType.currentAmmo = weaponType.maxAmmo;
         isReloading = false;
         GameManager.Instance.DisplayReloading(null);

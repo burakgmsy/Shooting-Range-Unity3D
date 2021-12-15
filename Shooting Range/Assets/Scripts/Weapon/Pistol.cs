@@ -14,6 +14,5 @@ public class Pistol : Weapon
     {
         PlayerInput.OnShootSingle -= Shoot;
         PlayerInput.OnReload -= ReloadAmmo;
-        GameManager.Instance.DisplayReloading(null);
     }
 }
