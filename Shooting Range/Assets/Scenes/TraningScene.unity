@@ -2367,6 +2367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 150
   isPlaying: 1
+  isMainMenu: 0
   reloadKey: 114
   shootKey: 100
   switchKey: 119
@@ -4980,7 +4981,7 @@ MonoBehaviour:
   isReloading: 0
   _camera: {fileID: 463195312}
   muzzleFlash: {fileID: 964013944}
-  animatior: {fileID: 0}
+  animatior: {fileID: 314026056}
   shootCounter: 0
   recoilObject: {fileID: 981820792}
 --- !u!4 &4944005047282223592
