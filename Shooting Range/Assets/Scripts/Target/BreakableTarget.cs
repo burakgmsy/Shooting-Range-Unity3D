@@ -18,6 +18,7 @@ public class BreakableTarget : DamageableObject, IBreakable, IDeActiveable
     }
     public void Break()
     {
+        healBarObj.SetActive(false);
         solidObj.SetActive(false);
         breakObj.SetActive(true);
         //kırılma sesi

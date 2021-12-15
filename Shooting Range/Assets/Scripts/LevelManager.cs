@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-
 public class LevelManager : Singleton<LevelManager>
 {
-    public TMP_Text level;
+
     [SerializeField] private int currentLevel;
     private Dictionary<int, LevelData> myLevel = new Dictionary<int, LevelData>();
     public LevelData[] levelType;
@@ -14,13 +12,15 @@ public class LevelManager : Singleton<LevelManager>
 
     private void Start()
     {
-        PlayerPrefsManager.Instance.ResetLevel();
         DamageableObject.Dead += DeadCounterObserver;
         AddLevels();
         LevelCheck();
         SpawnObject();
     }
-
+    private void OnDisable()
+    {
+        DamageableObject.Dead -= DeadCounterObserver;
+    }
     private void SpawnObject()
     {
         ObjectPool.Instance.AllObjDeActived();
@@ -32,7 +32,6 @@ public class LevelManager : Singleton<LevelManager>
             obj.transform.position = new Vector3(calculatedPos.x, obj.transform.position.y, calculatedPos.z);
             //get componant ile base class'a ulaşılabilir mi?
             // observer ile çözüldü
-
             foreach (Renderer renderer in obj.GetComponentsInChildren<Renderer>())
             {
                 renderer.material = myLevel[currentLevel].material;
@@ -46,11 +45,9 @@ public class LevelManager : Singleton<LevelManager>
         {
             deadCounter++;
             if (deadCounter >= 5)
-                NextLevel();
+                StartCoroutine(NextLevel());
             //level success
         }
-
-
     }
     private Vector3 CalculateTargetPosition()
     {
@@ -76,22 +73,24 @@ public class LevelManager : Singleton<LevelManager>
                 break;
             }
         }
-        DisplayLevel();
-    }
-
-    private void DisplayLevel()
-    {
-        level.text = "Level " + currentLevel;
+        GameManager.Instance.DisplayLevel(currentLevel);
     }
 
 
-    private void NextLevel()
+
+
+    private IEnumerator NextLevel()
     {
+
+        GameManager.Instance.DisplayLevelSuccess("Level Success");
+        yield return new WaitForSeconds(3f);
+        GameManager.Instance.DisplayLevelSuccess(" ");
         deadCounter = 0;
         if (currentLevel < myLevel.Count)
             PlayerPrefsManager.Instance.SaveLevel(currentLevel + 1);
+        else
+            GameManager.Instance.DisplayLevelSuccess("Simulation Complete");
         LevelCheck();
         SpawnObject();
-
     }
 }

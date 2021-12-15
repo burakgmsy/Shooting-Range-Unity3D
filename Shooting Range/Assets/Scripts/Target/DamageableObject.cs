@@ -9,9 +9,10 @@ public abstract class DamageableObject : MonoBehaviour
     public HealthBar healthBar;
     public GameObject healBarObj;
     public static event Action<bool> Dead = delegate { };
+
     public int CurrentHp { get => currentHp; set => currentHp = value; }
 
-    private void OnEnable()
+    private void Awake()
     {
         CurrentHp = maxHp;
         healthBar.SetMaxHealth(maxHp);
@@ -26,7 +27,7 @@ public abstract class DamageableObject : MonoBehaviour
     {
         if (currentHp <= 0 && !isDead)
         {
-            healBarObj.SetActive(false);
+
             isDead = true;
             Dead(isDead);
         }

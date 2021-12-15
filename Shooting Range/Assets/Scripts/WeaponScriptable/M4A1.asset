@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: M4A1
   m_EditorClassIdentifier: 
   weaponName: M4A1
-  nextTimeToFire: 106.18206
-  damage: 5
+  nextTimeToFire: 73.90009
+  damage: 50
   reloadTime: 5
   maxAmmo: 30
   currentAmmo: 0

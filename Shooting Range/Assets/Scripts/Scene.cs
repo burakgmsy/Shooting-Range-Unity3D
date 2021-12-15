@@ -1,0 +1,5 @@
+enum Scene
+{
+    GameScene,
+    TraningScene
+}

@@ -1,11 +1,10 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using TMPro;
 
 public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
 {
-    public TMP_Text cuurentAmmo;
+
     [SerializeField] private WeaponType weaponType = null;
     [SerializeField] public bool isReloading = false;
     [SerializeField] private Camera _camera;
@@ -23,34 +22,36 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
         //currentAmmo = maxAmmo;
         weaponType.nextTimeToFire = 0;
         weaponType.currentAmmo = weaponType.maxAmmo;
-        DisplayAmmo();
+
     }
     private void Update()
     {
         CalculateRecoil(weaponType.snappiness, weaponType.returnSpeed);
-        DisplayAmmo();
+        GameManager.Instance.DisplayAmmo(weaponType.currentAmmo, weaponType.maxAmmo);
     }
     public void ReloadAmmo()
     {
-        if (weaponType.currentAmmo <= 0)
+        if (weaponType.currentAmmo < weaponType.maxAmmo)
         {
             StartCoroutine(Reload());
             return;
         }
-        DisplayAmmo();
+
     }
     public IEnumerator Reload()
     {
+        GameManager.Instance.DisplayReloading("Reloading..");
         isReloading = true;
         yield return new WaitForSeconds(weaponType.reloadTime);
         //currentAmmo = maxAmmo;
         weaponType.currentAmmo = weaponType.maxAmmo;
         isReloading = false;
+        GameManager.Instance.DisplayReloading(null);
     }
 
     public void Shoot()
     {
-        if (weaponType.currentAmmo > 0 && Time.time >= weaponType.nextTimeToFire)
+        if (weaponType.currentAmmo > 0 && Time.time >= weaponType.nextTimeToFire && !isReloading)
         {
             weaponType.nextTimeToFire = Time.time + 1f / weaponType.fireRate;
             Fire();
@@ -91,10 +92,7 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
         currentRotation = Vector3.Slerp(currentRotation, targetRotation, snappiness * Time.fixedDeltaTime);
         recoilObject.localRotation = Quaternion.Euler(currentRotation);
     }
-    public void DisplayAmmo()
-    {
-        cuurentAmmo.text = "Ammo: " + weaponType.currentAmmo + " / " + weaponType.maxAmmo;
-    }
+
 
 
 }

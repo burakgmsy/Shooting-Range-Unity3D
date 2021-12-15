@@ -9,19 +9,22 @@ public class PlayerInput : MonoBehaviour
     public static event Action OnShootAuto = delegate { };
     public static event Action OnReload = delegate { };
     public static event Action OnSwitch = delegate { };
-
-
-    private void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+    public static event Action OnRevive = delegate { };
+    public static event Action OnPause = delegate { };
     private void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * GameManager.Instance.mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * GameManager.Instance.mouseSensitivity * Time.deltaTime;
-
-        MouseVector?.Invoke(new Vector2(mouseX, mouseY));
-
+        if (GameManager.Instance.isPlaying)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            MouseVector?.Invoke(new Vector2(mouseX, mouseY));
+            Time.timeScale = 1;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
         if (Input.GetKeyDown(GameManager.Instance.shootKey))
             OnShootSingle();
 
@@ -33,6 +36,13 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(GameManager.Instance.switchKey))
             OnSwitch();
+
+        if (Input.GetKeyDown(GameManager.Instance.reviveKey))
+            OnRevive();
+
+        if (Input.GetKeyDown(GameManager.Instance.pauseKey))
+            OnPause();
+
     }
 
 

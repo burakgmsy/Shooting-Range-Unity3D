@@ -20,6 +20,7 @@ public class ExplodeableTarget : DamageableObject, IExplodeable, IDeActiveable
     }
     public void Explode()
     {
+        healBarObj.SetActive(false);
         solidBarrel.SetActive(false);
         explodeBarrel.SetActive(true);
         explodeEffect.Play();
