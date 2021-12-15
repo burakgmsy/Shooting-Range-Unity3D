@@ -14,6 +14,7 @@ public class FreshTarget : DamageableObject, IHealable
     }
     public void Heal()
     {
+        Debug.Log(transform.name + " " + maxHp + " değerinde iyileşti");
         healthBar.SetMaxHealth(maxHp);
         CurrentHp = maxHp;
     }

@@ -239,6 +239,51 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00029888414, y: 0.008523143, z: -0.00011353847}
     m_Extent: {x: 0.00020436148, y: 0.008523165, z: 0.0026299045}
   m_DirtyAABB: 0
+--- !u!1 &45698920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 45698922}
+  - component: {fileID: 45698921}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &45698921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45698920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9fec62f3bd67a4fa68cfdc9e0810fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseGameMenu: {fileID: 7974041706850857307}
+  pauseGameButtons: {fileID: 7974041707696208306}
+--- !u!4 &45698922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45698920}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &51774266
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,6 +897,49 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 649224665686316221, guid: 9906242a23a53ff499115aead2ac5790, type: 3}
   m_PrefabInstance: {fileID: 243717460}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &286683694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286683696}
+  - component: {fileID: 286683695}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &286683695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286683694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1950b778eaa3014c863c5b09c7d9e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &286683696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286683694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.926505, y: 4.9355965, z: 26.320677}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &314026052
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,7 +2151,7 @@ Transform:
   - {fileID: 812586372}
   - {fileID: 430062249}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &812586371
 GameObject:
@@ -2224,7 +2312,6 @@ GameObject:
   m_Component:
   - component: {fileID: 835209919}
   - component: {fileID: 835209920}
-  - component: {fileID: 835209921}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2244,7 +2331,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &835209920
 MonoBehaviour:
@@ -2269,20 +2356,6 @@ MonoBehaviour:
   levelSuccess: {fileID: 0}
   cuurentAmmo: {fileID: 7974041707641407079}
   ReloadText: {fileID: 1881545130}
-  pauseGameMenu: {fileID: 7974041706850857307}
-  pauseGameButtons: {fileID: 7974041707696208306}
---- !u!114 &835209921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835209918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1950b778eaa3014c863c5b09c7d9e66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &855190047
 GameObject:
   m_ObjectHideFlags: 0
@@ -2558,7 +2631,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &964013944 stripped
 ParticleSystem:
@@ -2899,7 +2972,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1306628871 stripped
 GameObject:
@@ -4883,7 +4956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78716e49ebf5622489998c54ea91562b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cuurentAmmo: {fileID: 0}
   weaponType: {fileID: 11400000, guid: df7dc8d9d94acc941b7b3090f2264b4a, type: 2}
   isReloading: 0
   _camera: {fileID: 463195312}
@@ -5148,7 +5220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be30d63621cd8024d9429e07463e50a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cuurentAmmo: {fileID: 0}
   weaponType: {fileID: 11400000, guid: 4c97c52678f78ce458deac68ad492a11, type: 2}
   isReloading: 0
   _camera: {fileID: 463195312}
@@ -5489,7 +5560,7 @@ RectTransform:
   - {fileID: 7974041706850857306}
   - {fileID: 7974041707696208317}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5633,8 +5704,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 835209921}
-        m_TargetAssemblyTypeName: SceneLaodManager, Assembly-CSharp
+      - m_Target: {fileID: 835209920}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
@@ -6126,8 +6197,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 835209921}
-        m_TargetAssemblyTypeName: SceneLaodManager, Assembly-CSharp
+      - m_Target: {fileID: 835209920}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:

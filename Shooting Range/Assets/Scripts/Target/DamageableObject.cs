@@ -19,6 +19,7 @@ public abstract class DamageableObject : MonoBehaviour
     }
     public virtual void TakeDamage(int amount)
     {
+        Debug.Log(transform.name + " " + amount + " Hasar aldı");
         currentHp -= amount;
         healthBar.SetHealth(currentHp);
         Observer();
@@ -30,6 +31,7 @@ public abstract class DamageableObject : MonoBehaviour
 
             isDead = true;
             Dead(isDead);
+            Debug.Log(transform.name + " Kullanılamaz Halde");
         }
     }
 

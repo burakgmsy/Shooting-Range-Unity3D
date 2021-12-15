@@ -39,6 +39,7 @@ public class MetalTargetRevivable : DamageableObject, IReviveable
     }
     public void Revive()
     {
+        Debug.Log(transform.name + " " + maxHp + " değerinde iyileşti");
         healthBar.SetMaxHealth(maxHp);
         CurrentHp = maxHp;
         if (isDead)

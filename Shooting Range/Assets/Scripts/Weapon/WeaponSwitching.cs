@@ -37,11 +37,15 @@ public class WeaponSwitching : MonoBehaviour
 
     void SwitchWeapon()
     {
+        Debug.Log("Silah Değiştirildi");
         int i = 0;
         foreach (Transform weapon in transform)
         {
             if (i == selectedWeapon)
+            {
                 weapon.gameObject.SetActive(true);
+                Debug.Log("Elinde " + weapon.transform.name + " Var");
+            }
             else
                 weapon.gameObject.SetActive(false);
             i++;

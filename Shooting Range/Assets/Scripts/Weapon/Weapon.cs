@@ -40,10 +40,11 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
     }
     public IEnumerator Reload()
     {
+        Debug.Log("Şarjör Dolduruluyor...");
         GameManager.Instance.DisplayReloading("Reloading..");
         isReloading = true;
         yield return new WaitForSeconds(weaponType.reloadTime);
-        //currentAmmo = maxAmmo;
+         Debug.Log("Şarjör Dolduruldu");
         weaponType.currentAmmo = weaponType.maxAmmo;
         isReloading = false;
         GameManager.Instance.DisplayReloading(null);
@@ -61,6 +62,7 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
     {
         muzzleFlash.Play();
         weaponType.currentAmmo--;
+        Debug.Log("Ateş Edildi");
 
         RaycastHit hit;
         if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, weaponType.range))
@@ -70,6 +72,12 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
             if (target != null)
             {
                 target.TakeDamage((int)weaponType.damage);
+                Debug.Log("Hedef Vuruldu");
+            }
+            else
+            {
+                Debug.Log("Hedef Vurulmadı");
+                Debug.Log(hit.transform.name + " Vuruldu");
             }
             if (hit.rigidbody != null)
             {

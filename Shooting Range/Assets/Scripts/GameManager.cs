@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
@@ -19,9 +18,8 @@ public class GameManager : Singleton<GameManager>
     public TMP_Text levelSuccess = null;
     public TMP_Text cuurentAmmo;
     public TMP_Text ReloadText;
-    public GameObject pauseGameMenu;
-    public GameObject pauseGameButtons;
 
+    
     public void DisplayLevel(int level)
     {
         levelText.text = "Level " + level;
@@ -38,32 +36,18 @@ public class GameManager : Singleton<GameManager>
     {
         ReloadText.text = value;
     }
-    private void Start()
+    public void MainMenu()
     {
-        PlayerInput.OnPause += PauseGame;
+        SceneManager.LoadScene((int)Scene.GameScene);
     }
-    private void OnDisable()
+    public void TraningMode()
     {
-        PlayerInput.OnPause -= PauseGame;
+        Cursor.lockState = CursorLockMode.Locked;
+        SceneManager.LoadScene((int)Scene.TraningScene);
     }
-    public void PauseGame()
+    public void ExitGame()
     {
-        if (isPlaying)
-        {
-            Time.timeScale = 0;
-            isPlaying = false;
-            //Cursor.lockState = CursorLockMode.None;
-            pauseGameMenu.SetActive(true);
-            pauseGameButtons.SetActive(true);
-        }
-        else
-        {
-            Time.timeScale = 1;
-            isPlaying = true;
-            //Cursor.lockState = CursorLockMode.Locked;
-            pauseGameMenu.SetActive(false);
-            pauseGameButtons.SetActive(false);
-        }
+        Application.Quit();
     }
 
 }
