@@ -10,11 +10,11 @@ public class MetalTargetRevivable : DamageableObject, IReviveable
     private Tween myTween;
     private void OnEnable()
     {
-        PlayerInput.OnRevive += Revive;
+        InputManager.OnRevive += Revive;
     }
     private void OnDisable()
     {
-        PlayerInput.OnRevive -= Revive;
+        InputManager.OnRevive -= Revive;
     }
     public override void TakeDamage(int amount)
     {

@@ -12,11 +12,11 @@ public class WeaponSwitching : MonoBehaviour
     }
     private void Awake()
     {
-        PlayerInput.OnSwitch += SelectWeapon;
+        InputManager.OnSwitch += SelectWeapon;
     }
     private void OnDestroy()
     {
-        PlayerInput.OnSwitch -= SelectWeapon;
+        InputManager.OnSwitch -= SelectWeapon;
     }
 
     private void SelectWeapon()

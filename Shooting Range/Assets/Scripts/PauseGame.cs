@@ -9,11 +9,11 @@ public class PauseGame : MonoBehaviour
     public GameObject pauseGameButtons;
     private void OnEnable()
     {
-        PlayerInput.OnPause += Pause;
+        InputManager.OnPause += Pause;
     }
     void OnDisable()
     {
-        PlayerInput.OnPause -= Pause;
+        InputManager.OnPause -= Pause;
     }
     public void Pause()
     {

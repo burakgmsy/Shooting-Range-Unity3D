@@ -9,11 +9,11 @@ public class MouseLook : MonoBehaviour
     float xRotation = 0f;
     private void Start()
     {
-        PlayerInput.MouseVector += LookAround; //Observer DesingPattern
+        InputManager.MouseVector += LookAround; //Observer DesingPattern
     }
     private void OnDestroy()
     {
-        PlayerInput.MouseVector -= LookAround;
+        InputManager.MouseVector -= LookAround;
     }
 
     private void LookAround(Vector2 vector)

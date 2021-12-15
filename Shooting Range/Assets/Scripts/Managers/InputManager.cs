@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     //Observer DesingPattern
     public static event Action<Vector2> MouseVector;

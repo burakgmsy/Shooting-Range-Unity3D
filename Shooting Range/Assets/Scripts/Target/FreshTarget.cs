@@ -6,11 +6,11 @@ public class FreshTarget : DamageableObject, IHealable
 {
     private void OnEnable()
     {
-        PlayerInput.OnRevive += Heal;
+        InputManager.OnRevive += Heal;
     }
     private void OnDisable()
     {
-        PlayerInput.OnRevive -= Heal;
+        InputManager.OnRevive -= Heal;
     }
     public void Heal()
     {
