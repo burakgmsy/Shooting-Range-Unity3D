@@ -40,6 +40,7 @@ public class MenuManager : MonoBehaviour
 
     public void PlayingGame()
     {
+        GameManager.Instance.isMainMenu = false;
         inGameMenu.SetActive(true);
         mainMenu.SetActive(false);
         levelManagerObject.SetActive(true);

@@ -7,6 +7,7 @@ public class GameManager : Singleton<GameManager>
 
     public float mouseSensitivity = 150f;
     public bool isPlaying;
+    public bool isMainMenu;
     public KeyCode reloadKey;
     public KeyCode shootKey;
     public KeyCode switchKey;

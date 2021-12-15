@@ -5,6 +5,7 @@ public class Rifle : Weapon
         PlayerInput.OnShootAuto += Shoot;
         PlayerInput.OnReload += ReloadAmmo;
         isReloading = false;
+        animatior.SetBool("isReload", false);
     }
     private void OnDisable()
     {

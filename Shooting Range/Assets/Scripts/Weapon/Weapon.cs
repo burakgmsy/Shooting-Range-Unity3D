@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
     [SerializeField] public bool isReloading = false;
     [SerializeField] private Camera _camera;
     [SerializeField] private ParticleSystem muzzleFlash;
+    public Animator animatior;
     public int shootCounter;
 
     //RECOİL
@@ -48,7 +49,13 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
         Debug.Log("Şarjör Dolduruluyor...");
         GameManager.Instance.DisplayReloading("Reloading..");
         isReloading = true;
+
+        animatior.SetBool("isReload", true);
         yield return new WaitForSeconds(weaponType.reloadTime);
+
+        animatior.SetBool("isReload", false);
+        yield return new WaitForSeconds(1f); //anim delay
+
         Debug.Log("Şarjör Dolduruldu");
         weaponType.currentAmmo = weaponType.maxAmmo;
         isReloading = false;
@@ -65,6 +72,7 @@ public class Weapon : MonoBehaviour, IFireable, IRecoilable, IReloadable
     }
     public void Fire()
     {
+        //animatior.SetBool("isShoot", true);
         muzzleFlash.Play();
         weaponType.currentAmmo--;
         shootCounter++;

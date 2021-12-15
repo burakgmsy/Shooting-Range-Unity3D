@@ -951,6 +951,7 @@ GameObject:
   - component: {fileID: 314026053}
   - component: {fileID: 314026054}
   - component: {fileID: 314026055}
+  - component: {fileID: 314026056}
   m_Layer: 0
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -1006,6 +1007,25 @@ MonoBehaviour:
   fleshHitEffects:
   - {fileID: 1000013169864706, guid: e5a3d6da48298a0458c1990f58c27069, type: 3}
   - {fileID: 1000010191825552, guid: 83e55d3418297934fab882559d009285, type: 3}
+--- !u!95 &314026056
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314026052}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 529ec626a93527b44a8e2a8f2a888513, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &355068346
 GameObject:
   m_ObjectHideFlags: 0
@@ -4960,6 +4980,8 @@ MonoBehaviour:
   isReloading: 0
   _camera: {fileID: 463195312}
   muzzleFlash: {fileID: 964013944}
+  animatior: {fileID: 0}
+  shootCounter: 0
   recoilObject: {fileID: 981820792}
 --- !u!4 &4944005047282223592
 Transform:
@@ -5224,6 +5246,8 @@ MonoBehaviour:
   isReloading: 0
   _camera: {fileID: 463195312}
   muzzleFlash: {fileID: 402154449}
+  animatior: {fileID: 314026056}
+  shootCounter: 0
   recoilObject: {fileID: 981820792}
 --- !u!65 &7632648963594428892
 BoxCollider:

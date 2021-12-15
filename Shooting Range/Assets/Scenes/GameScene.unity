@@ -861,6 +861,7 @@ GameObject:
   - component: {fileID: 314026053}
   - component: {fileID: 314026054}
   - component: {fileID: 314026055}
+  - component: {fileID: 314026056}
   m_Layer: 0
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -916,6 +917,25 @@ MonoBehaviour:
   fleshHitEffects:
   - {fileID: 1000013169864706, guid: e5a3d6da48298a0458c1990f58c27069, type: 3}
   - {fileID: 1000010191825552, guid: 83e55d3418297934fab882559d009285, type: 3}
+--- !u!95 &314026056
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314026052}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 529ec626a93527b44a8e2a8f2a888513, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &369264018
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +979,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &401674559
 GameObject:
@@ -2025,6 +2045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 150
   isPlaying: 0
+  isMainMenu: 1
   reloadKey: 114
   shootKey: 100
   switchKey: 119
@@ -2034,49 +2055,6 @@ MonoBehaviour:
   levelSuccess: {fileID: 1091606695}
   cuurentAmmo: {fileID: 945622322}
   ReloadText: {fileID: 485357524}
---- !u!1 &839890527
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 839890529}
-  - component: {fileID: 839890528}
-  m_Layer: 0
-  m_Name: SceneManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &839890528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839890527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1950b778eaa3014c863c5b09c7d9e66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &839890529
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839890527}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.926505, y: 4.9355965, z: 26.320677}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &888631089
 GameObject:
   m_ObjectHideFlags: 0
@@ -4312,6 +4290,8 @@ MonoBehaviour:
   isReloading: 0
   _camera: {fileID: 463195312}
   muzzleFlash: {fileID: 964013944}
+  animatior: {fileID: 314026056}
+  shootCounter: 0
   recoilObject: {fileID: 981820792}
 --- !u!33 &6164026712793291945
 MeshFilter:
@@ -4386,6 +4366,8 @@ MonoBehaviour:
   isReloading: 0
   _camera: {fileID: 463195312}
   muzzleFlash: {fileID: 402154449}
+  animatior: {fileID: 314026056}
+  shootCounter: 0
   recoilObject: {fileID: 981820792}
 --- !u!23 &8246076533333092451
 MeshRenderer:

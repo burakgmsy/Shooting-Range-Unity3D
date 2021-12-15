@@ -20,28 +20,31 @@ public class PlayerInput : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             MouseVector?.Invoke(new Vector2(mouseX, mouseY));
             Time.timeScale = 1;
+
+            if (Input.GetKeyDown(GameManager.Instance.shootKey))
+                OnShootSingle();
+
+            if (Input.GetKey(GameManager.Instance.shootKey))
+                OnShootAuto();
+
+            if (Input.GetKeyDown(GameManager.Instance.reloadKey))
+                OnReload();
+
+            if (Input.GetKeyDown(GameManager.Instance.switchKey))
+                OnSwitch();
+
+            if (Input.GetKeyDown(GameManager.Instance.reviveKey))
+                OnRevive();
+
         }
         else
         {
             Cursor.lockState = CursorLockMode.None;
         }
-        if (Input.GetKeyDown(GameManager.Instance.shootKey))
-            OnShootSingle();
-
-        if (Input.GetKey(GameManager.Instance.shootKey))
-            OnShootAuto();
-
-        if (Input.GetKeyDown(GameManager.Instance.reloadKey))
-            OnReload();
-
-        if (Input.GetKeyDown(GameManager.Instance.switchKey))
-            OnSwitch();
-
-        if (Input.GetKeyDown(GameManager.Instance.reviveKey))
-            OnRevive();
-
-        if (Input.GetKeyDown(GameManager.Instance.pauseKey))
+        if (Input.GetKeyDown(GameManager.Instance.pauseKey) && !GameManager.Instance.isMainMenu)
             OnPause();
+
+
 
     }
 
